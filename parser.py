@@ -5,8 +5,8 @@ import xml.etree.ElementTree
 
 from termcolor import colored
 
-
-def main_parser(xml_file, option: str, specified_file: str):
+# ?Bad name?
+def main_parser(xml_file: str, option: str, specified_file: str):
     """
     Parse the given XML file and find all the tags with attribute TYPE (value:
     image).
@@ -14,18 +14,26 @@ def main_parser(xml_file, option: str, specified_file: str):
     root: xml.etree.ElementTree.Element = parse_xml_file(xml_file)
 
     # Specific for handling images
-    images: tuple = tuple(get_all_images(root, "widget"))
-    image_names: tuple = tuple(get_image_name(images))
-    all_image_files: tuple = tuple(filter_the_image_files(os.listdir()))
-    #delete_unused_images(image_names, all_image_files)
-
+    if specified_file == "png":
+        images: tuple = tuple(get_all_images(root, "widget"))
+        image_names: tuple = tuple(get_image_name(images))
+        all_image_files: tuple = tuple(filter_the_image_files(os.listdir()))
+        if option == "-s":
+            print("INFO: Checking the available pictures...")
+            make_suggestions(image_names, all_image_files)
+        elif option == "-d":
+            print("INFO: Removing the redundant pictures...")
+            delete_unused_images(image_names, all_image_files)
     # Specific for handling exercises
-    exercise_names_and_paths = get_exercise_name_and_path(root, "solution")
-    all_exercise_folders = filter_the_exercise_files()
-    #delete_unused_exercises(exercises, all_exercise_folders)
+    elif specified_file == "src":
+        exercise_names_and_paths: dict = get_exercise_name_and_path(root, "solution")
+        all_exercise_folders: dict = filter_the_exercise_files()
+        if option == "-s":
+            print("INFO: Checking the available exercises...")
+            make_suggestions(exercise_names_and_paths.keys(), all_exercise_folders.keys())
+        elif option == "-d":
+            delete_unused_exercises(exercise_names_and_paths, all_exercise_folders)
 
-    #make_suggestions(exercise_names, all_exercise_folders)
-    
 
 def parse_xml_file(xml_file: str) -> xml.etree.ElementTree.Element:
     """
@@ -35,7 +43,7 @@ def parse_xml_file(xml_file: str) -> xml.etree.ElementTree.Element:
     return tree.getroot()
 
 
-# <---- Function needed for handling IMAGES ----> START
+# <---- Functions needed for handling IMAGES ----> START
 
 def get_all_images(root: xml.etree.ElementTree.Element, tagname: str) -> list:
     """
@@ -74,14 +82,15 @@ def delete_unused_images(images: tuple, filetree: tuple):
     """
     for image in filetree: 
         if image not in images:
+            print(image + " deleting...")
             os.remove(image)
 
     # ?It's necessary to have a return here? If yes how to build a function properly
 
-# <---- Function needed for handling IMAGES ----> END
+# <---- Functions needed for handling IMAGES ----> END
 
 
-# <---- Function needed for handling EXERCISES ----> START
+# <---- Functions needed for handling EXERCISES ----> START
 
 def get_exercise_name_and_path(root: xml.etree.ElementTree.Element, tagname: str) -> dict:
     """
@@ -126,11 +135,12 @@ def delete_unused_exercises(in_use_exercises: tuple, all_exercises: tuple):
     """
     for folder in all_exercises:
         if folder not in in_use_exercises.keys():
+            print(folder + " deleting...")
             rmtree(all_exercises[folder])
 
     # ?It's necessary to have a return here? If yes how to build a function properly
 
-# <---- Function needed for handling EXERCISES ----> END
+# <---- Functions needed for handling EXERCISES ----> END
 
 
 def make_suggestions(used_files: tuple, filetree: tuple) -> None:
@@ -142,7 +152,7 @@ def make_suggestions(used_files: tuple, filetree: tuple) -> None:
         if file in used_files:
             print(colored(f"CORRECT: '{file}'..", "green"))
         else:
-            print(colored(f"REMOVING: '{file}'..", "red"))
+            print(colored(f"TO REMOVE: '{file}'..", "red"))
 
 
 
