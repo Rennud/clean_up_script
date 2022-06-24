@@ -32,6 +32,7 @@ def main_parser(xml_file: str, option: str, specified_file: str):
             print("INFO: Checking the available exercises...")
             make_suggestions(exercise_names_and_paths.keys(), all_exercise_folders.keys())
         elif option == "-d":
+            print("INFO: Removing the redundant exercises...")
             delete_unused_exercises(exercise_names_and_paths, all_exercise_folders)
 
 
@@ -82,7 +83,7 @@ def delete_unused_images(images: tuple, filetree: tuple):
     """
     for image in filetree: 
         if image not in images:
-            print(image + " deleting...")
+            print(colored(image + " deleting...", "red"))
             os.remove(image)
 
     # ?It's necessary to have a return here? If yes how to build a function properly
@@ -135,7 +136,7 @@ def delete_unused_exercises(in_use_exercises: tuple, all_exercises: tuple):
     """
     for folder in all_exercises:
         if folder not in in_use_exercises.keys():
-            print(folder + " deleting...")
+            print(colored(folder + " deleting...", "red"))
             rmtree(all_exercises[folder])
 
     # ?It's necessary to have a return here? If yes how to build a function properly
