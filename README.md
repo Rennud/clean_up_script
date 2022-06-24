@@ -12,10 +12,10 @@ In this project I am using pipenv package manager that creates Pipfile.lock file
 
 ## Turn on script 
 <p>To start the script go to the academy repo. <code>online-python-akademie</code> Script can be run via cli and requires three mandatory arguments.</p>
-<p>1. arg: **xml file** that contains all information about academy</p>
+<p>1. arg: xml file that contains all information about academy</p>
 <p>2. arg: choose operation 
-    - you can use **-s** to get information about which files are used and which aren't.
-    - you can use **-d** to delete unused files from repository
+    - you can use <strong>-s</strong> to get information about which files are used and which aren't.
+    - you can use -d to delete unused files from repository
 </p>
 <p>3. arg: specify file
     - png -> for images
@@ -26,7 +26,7 @@ In this project I am using pipenv package manager that creates Pipfile.lock file
 
 ## Script run examples
 
-<p>Run script with **-s** option:</p>
+<p>Run script with -s option:</p>
 <code>python3 ../main.py /course_online-python-akademie.xml -s png</code> 
 
 <p>Partial output: </p>
@@ -41,8 +41,8 @@ CORRECT: '17_quick_setup.png'..
 ...
 </code></pre>
 
-<p>Run script with **-d** option:</p>
-<code>python3 ../main.py /course_online-python-akademie.xml -d src</code>
+<p>Run script with -d option:</p>
+<p><code>python3 ../main.py /course_online-python-akademie.xml -d src</code></p>
 
 <p>Partial output: </p>
 <pre><code>INFO: Removing the redundant exercises...
@@ -59,7 +59,7 @@ vertikalni_histogram deleting...
 </code></pre>
 
 ## Project structure 
-<p>Script controlor is <code>main.py</code> there is a main in which are set up **sys.argv** and call the <code>main_parser</code> func and passed sys.args as arguments for the func.</p>
+<p>Script controlor is <code>main.py</code> there is a main in which are set up sys.argv and call the <code>main_parser</code> func and passed sys.args as arguments for the func.</p>
 
 <p>In <code>parser.py</code> are all the functions to get needed information about pic and exer. + <code>main_parser</code> function that 
 handles logic behind args. we can divide the file into 4 imaginary blocks:
@@ -68,4 +68,4 @@ handles logic behind args. we can divide the file into 4 imaginary blocks:
 <p>1. block is <code>main_parser</code>function with <code>parse_xml_file</code>function that handles parsing of xml file</p>
 <p>2. block contains all function needed just for the images</p>
 <p>3. block contains all function needed just for the exercises</p>
-<p>4. contains only one function that is needed for **-s** option and can be used with images and exercises as well</p>
+<p>4. contains only one function that is needed for -s option and can be used with images and exercises as well</p>
