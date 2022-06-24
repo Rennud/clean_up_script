@@ -27,7 +27,7 @@ In this project I am using pipenv package manager that creates Pipfile.lock file
 ## Script run examples
 
 <p>Run script with -s option:</p>
-<code>python3 ../main.py /course_online-python-akademie.xml -s png</code> 
+<p><code>python3 ../main.py /course_online-python-akademie.xml -s png</code></p>
 
 <p>Partial output: </p>
 <pre><code>INFO: Checking the available pictures...
@@ -68,4 +68,4 @@ handles logic behind args. we can divide the file into 4 imaginary blocks:
 <p>1. block is <code>main_parser</code>function with <code>parse_xml_file</code>function that handles parsing of xml file</p>
 <p>2. block contains all function needed just for the images</p>
 <p>3. block contains all function needed just for the exercises</p>
-<p>4. contains only one function that is needed for -s option and can be used with images and exercises as well</p>
+<p>4. contains only one function that is needed for <strong>-s</strong> option and can be used with images and exercises as well</p>
