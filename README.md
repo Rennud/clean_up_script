@@ -12,14 +12,14 @@ In this project I am using pipenv package manager that creates Pipfile.lock file
 
 ## Turn on script 
 <p>To start the script go to the academy repo. <code>online-python-akademie</code> Script can be run via cli and requires three mandatory arguments.</p>
-<p>1. arg: xml file that contains all information about academy</p>
+<p>1. arg: <strong>xml file</strong> that contains all information about academy</p>
 <p>2. arg: choose operation 
     - you can use <strong>-s</strong> to get information about which files are used and which aren't.
-    - you can use -d to delete unused files from repository
+    - you can use <strong>-d</strong> to delete unused files from repository
 </p>
 <p>3. arg: specify file
-    - png -> for images
-    - src -> for exercises
+    <p><strong>png</strong> -> for images</p>
+    <p><strong>src</strong> -> for exercises</p>
 </p>
   
 ```$ python3 ../main.py <xml_file_name> <operation> <specify_file>```
