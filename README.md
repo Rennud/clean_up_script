@@ -34,7 +34,7 @@ vertikalni_histogram deleting...
 ...
 </code></pre>
 
-<p>Run script with -d option:</p>
+<p>Run script with d option:</p>
 <p><code>python3 ../main.py /course_online-python-akademie.xml d src</code></p>
 
 ## Library installation
