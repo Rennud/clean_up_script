@@ -1,35 +1,12 @@
 # clean_up_script
 
-## Project description 
-This project serves for cleaning the repository that have all needed files for academy(xml, images, exercises).
+## Project description
+This project serves for cleaning the repository that have all needed files for academy. Script verify that xml with all academy info contains exercises and images that are in the repo as well. You can get just the information which files are correct and which files are redundant. Also you can just delete the redunant file.
 
-## Library installation 
-In this project I am using pipenv package manager that creates Pipfile.lock file that contains all needed dependecies to set up the project. 
-<p>Check pipenv manager: <code>pipenv --version</code><p>
-<p>If you don't have pipenv you can install it via pip: <code>pip install pipenv</code></p>
-<p>Before installation of dependecies don't forget to turn on virtual environment: <code>pipenv shell</code></p>
-<p>To install all dependecies from Pipfile.lock: <code>pipenv install</code></p>
+## Project licence
+The project is licensed under the MIT license. It is permissive free software license.
 
-## Turn on script 
-<p>To start the script go to the academy repo. <code>online-python-akademie</code> Script can be run via cli and requires three mandatory arguments.</p>
-<p>1. arg: <strong>xml file</strong> that contains all information about academy</p>
-<p>2. arg: choose operation 
-    - you can use <strong>-s</strong> to get information about which files are used and which aren't.
-    - you can use <strong>-d</strong> to delete unused files from repository
-</p>
-<p>3. arg: specify file
-    <p><strong>png</strong> -> for images</p>
-    <p><strong>src</strong> -> for exercises</p>
-</p>
-  
-```$ python3 ../main.py <xml_file_name> <operation> <specify_file>```
-
-## Script run examples
-
-<p>Run script with -s option:</p>
-<p><code>python3 ../main.py /course_online-python-akademie.xml -s png</code></p>
-
-<p>Partial output: </p>
+## Project demo
 <pre><code>INFO: Checking the available pictures...
 TO REMOVE: 'pycharm-create-python-file.png'..
 TO REMOVE: 'Subset.jpg'..
@@ -41,10 +18,9 @@ CORRECT: '17_quick_setup.png'..
 ...
 </code></pre>
 
-<p>Run script with -d option:</p>
-<p><code>python3 ../main.py /course_online-python-akademie.xml -d src</code></p>
+<p>Run script with s option:</p>
+<p><code>python3 ../main.py /course_online-python-akademie.xml s png</code></p>
 
-<p>Partial output: </p>
 <pre><code>INFO: Removing the redundant exercises...
 sum deleting...
 all_any deleting...
@@ -58,14 +34,28 @@ vertikalni_histogram deleting...
 ...
 </code></pre>
 
-## Project structure 
-<p>Script controlor is <code>main.py</code> there is a main in which are set up sys.argv and call the <code>main_parser</code> func and passed sys.args as arguments for the func.</p>
+<p>Run script with -d option:</p>
+<p><code>python3 ../main.py /course_online-python-akademie.xml d src</code></p>
 
-<p>In <code>parser.py</code> are all the functions to get needed information about pic and exer. + <code>main_parser</code> function that 
-handles logic behind args. we can divide the file into 4 imaginary blocks:
+## Library installation
+In this project I am using <code>setup.cfg</code> and <code>setup.py</code> in <code>setup.cfg</code> are all needed dependencies. <code>setup.py</code> is just for starting the installation.
+<p>Before installation of dependencies don't forget to create and activate virtual environment: <code>python3 -m venv venv</code></p>
+<p>To install all dependencies from setup.cfg: <code>python3 setup.py install</code></p>
+
+## Run script
+```$ python3 ../main.py <xml_file_name> <operation> <specify_file>```
+
+<p>To start the script go to the academy repo. <code>online-python-akademie</code> Script can be run via cli and requires three mandatory arguments.</p>
+<p>1. arg: <strong>xml file</strong> that contains all information about academy</p>
+<p>2. arg: choose operation
+    - you can use <strong>s</strong> to get information about which files are used and which aren't.
+    - you can use <strong>d</strong> to delete unused files from repository
+</p>
+<p>3. arg: specify file
+    <p><strong>png</strong> -> for images</p>
+    <p><strong>src</strong> -> for exercises</p>
 </p>
 
-<p>1. block is <code>main_parser</code>function with <code>parse_xml_file</code>function that handles parsing of xml file</p>
-<p>2. block contains all function needed just for the images</p>
-<p>3. block contains all function needed just for the exercises</p>
-<p>4. contains only one function that is needed for <strong>-s</strong> option and can be used with images and exercises as well</p>
+## Community and support
+<p>If you have any issue or question please let us know via creating a new issue [here](https://github.com/Rennud/clean_up_script/issues)</p>
+
