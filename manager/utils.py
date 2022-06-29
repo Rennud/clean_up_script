@@ -70,10 +70,4 @@ def make_suggestions(used_files: tuple, filetree: tuple) -> None:
 
 
 if __name__ == "__main__":
-    """parser = argparse.ArgumentParser()
-    parser.add_argument("xml_file", type=argparse.FileType(mode="r"))
-    parser.add_argument('-s', default='s')
-    parser.add_argument('png', default='png')
-    arguments = parser.parse_args()
-    main_parser(arguments) """
     main_parser()
