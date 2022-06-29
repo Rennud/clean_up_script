@@ -19,7 +19,7 @@ CORRECT: '17_quick_setup.png'..
 </code></pre>
 
 <p>Run script with s option:</p>
-<p><code>python3 ../main.py /course_online-python-akademie.xml s png</code></p>
+<p><code>python3 ../manager/utils.py /course_online-python-akademie.xml s png</code></p>
 
 <pre><code>INFO: Removing the redundant exercises...
 sum deleting...
@@ -35,7 +35,7 @@ vertikalni_histogram deleting...
 </code></pre>
 
 <p>Run script with d option:</p>
-<p><code>python3 ../main.py /course_online-python-akademie.xml d src</code></p>
+<p><code>python3 ../manager/utils.py /course_online-python-akademie.xml d src</code></p>
 
 ## Library installation
 In this project I am using <code>setup.cfg</code> and <code>setup.py</code> in <code>setup.cfg</code> are all needed dependencies. <code>setup.py</code> is just for starting the installation.
@@ -43,7 +43,7 @@ In this project I am using <code>setup.cfg</code> and <code>setup.py</code> in <
 <p>To install all dependencies from setup.cfg: <code>python3 setup.py install</code></p>
 
 ## Run script
-```$ python3 ../main.py <xml_file_name> <operation> <specify_file>```
+```$ python3 ../manager/utils.py <xml_file_name> <operation> <specify_file>```
 
 <p>To start the script go to the academy repo. <code>online-python-akademie</code> Script can be run via cli and requires three mandatory arguments.</p>
 <p>1. arg: <strong>xml file</strong> that contains all information about academy</p>
