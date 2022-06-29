@@ -39,11 +39,11 @@ def main_parser(xml_file: str, option: str, specified_file: str):
         exercise_names_and_paths: dict = get_exercise_name_and_path(
             root, "solution")
         all_exercise_folders: dict = filter_the_exercise_files()
-        if option == "-s":
+        if option == "s":
             print("INFO: Checking the available exercises...")
             make_suggestions(exercise_names_and_paths.keys(),
                              all_exercise_folders.keys())
-        elif option == "-d":
+        elif option == "d":
             print("INFO: Removing the redundant exercises...")
             delete_unused_exercises(
                 exercise_names_and_paths, all_exercise_folders)
