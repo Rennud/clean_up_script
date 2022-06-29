@@ -57,5 +57,5 @@ In this project I am using <code>setup.cfg</code> and <code>setup.py</code> in <
 </p>
 
 ## Community and support
-<p>If you have any issue or question please let us know via creating a new issue [here](https://github.com/Rennud/clean_up_script/issues)</p>
+If you have any issue or question please let us know via creating a new issue [here](https://github.com/Rennud/clean_up_script/issues)
 
